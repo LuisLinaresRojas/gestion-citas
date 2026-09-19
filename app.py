@@ -123,9 +123,20 @@ def cancelar(id):
     flash('Cita cancelada')
     return redirect(url_for('admin'))
 
-# Crea las tablas al iniciar (necesario para Gunicorn/Docker)
+# Crea las tablas y un admin por defecto al iniciar
 with app.app_context():
     db.create_all()
+    # Crear admin automáticamente si no existe (útil para demo)
+    if not Usuario.query.filter_by(correo='admin@demo.com').first():
+        admin = Usuario(
+            nombre='Administrador',
+            correo='admin@demo.com',
+            password=generate_password_hash('admin123'),
+            rol='admin'
+        )
+        db.session.add(admin)
+        db.session.commit()
+        print('✓ Usuario admin creado: admin@demo.com / admin123')
 
 if __name__ == '__main__':
     app.run(debug=True)
