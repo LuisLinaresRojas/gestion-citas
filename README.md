@@ -18,3 +18,8 @@ Python, Flask, SQLite, Bootstrap, GitHub Actions, Render.
 - [ ] Agendar citas
 - [ ] Panel de administrador
 - [ ] Despliegue
+
+## Enlaces
+- Repositorio: https://github.com/LuisLinaresRojas/gestion-citas
+- Blueprint en Render: https://dashboard.render.com/blueprints
+- Despliegue en vivo: https://gestion-citas-bxka.onrender.com
