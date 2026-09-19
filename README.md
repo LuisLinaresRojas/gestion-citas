@@ -4,10 +4,10 @@
 Aplicación web para registrar usuarios y gestionar citas de atención universitaria.
 
 ## Integrantes
-- Linares Rojas Luis – Desarrollo individual (autorizado por el docente)
+- Linares Rojas Luis – Desarrollo individual
 
 ## Modalidad de trabajo
-Proyecto desarrollado de forma individual con autorización del docente [nombre], debido a motivos laborales. Asumo todos los roles: repositorio, funcional, calidad/automatización y despliegue/documentación.
+Proyecto desarrollado de forma individual Espero que con autorización del docente Jeymi Melanie Valdivia Eguiluz, debido a motivos laborales. Asumo todos los roles: repositorio, funcional, calidad/automatización y despliegue/documentación.
 
 ## Tecnologías
 Python, Flask, SQLite, Bootstrap, GitHub Actions, Render.
@@ -23,3 +23,4 @@ Python, Flask, SQLite, Bootstrap, GitHub Actions, Render.
 - Repositorio: https://github.com/LuisLinaresRojas/gestion-citas
 - Blueprint en Render: https://dashboard.render.com/blueprints
 - Despliegue en vivo: https://gestion-citas-bxka.onrender.com
+- Video explicativo: https://youtu.be/H9twO-cRrvA
