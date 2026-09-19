@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from models import db, Usuario
+from models import db, Usuario, Cita
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -64,6 +64,34 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/agendar', methods=['GET', 'POST'])
+@login_required
+def agendar():
+    if request.method == 'POST':
+        fecha = request.form['fecha']
+        hora = request.form['hora']
+        motivo = request.form['motivo']
+        
+        # Validar que no exista una cita en la misma fecha y hora
+        existe = Cita.query.filter_by(fecha=fecha, hora=hora).first()
+        if existe:
+            flash('Ese horario ya está ocupado')
+            return redirect(url_for('agendar'))
+            
+        nueva = Cita(fecha=fecha, hora=hora, motivo=motivo, usuario_id=current_user.id)
+        db.session.add(nueva)
+        db.session.commit()
+        flash('Cita agendada exitosamente')
+        return redirect(url_for('mis_citas'))
+        
+    return render_template('agendar.html')
+
+@app.route('/mis-citas')
+@login_required
+def mis_citas():
+    citas = Cita.query.filter_by(usuario_id=current_user.id).all()
+    return render_template('agendar.html', citas=citas)
 
 if __name__ == '__main__':
     with app.app_context():

@@ -9,3 +9,11 @@ class Usuario(db.Model, UserMixin):
     correo = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
     rol = db.Column(db.String(20), default='usuario')
+    
+class Cita(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fecha = db.Column(db.String(20), nullable=False)
+    hora = db.Column(db.String(10), nullable=False)
+    motivo = db.Column(db.String(200))
+    estado = db.Column(db.String(20), default='pendiente')
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))

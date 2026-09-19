@@ -10,10 +10,12 @@
     <a class="navbar-brand" href="/">Gestión de Citas</a>
     <div>
         {% if current_user.is_authenticated %}
-            <span class="text-white me-2">{{ current_user.nombre }}</span>
+            <a href="/agendar" class="btn btn-sm btn-outline-light me-1">Agendar Cita</a>
+            <a href="/mis-citas" class="btn btn-sm btn-outline-light me-1">Mis Citas</a>
+            <span class="text-white me-2 ms-2">{{ current_user.nombre }}</span>
             <a href="/logout" class="btn btn-sm btn-outline-light">Salir</a>
         {% else %}
-            <a href="/login" class="btn btn-sm btn-outline-light">Login</a>
+            <a href="/login" class="btn btn-sm btn-outline-light me-1">Login</a>
             <a href="/registro" class="btn btn-sm btn-light">Registro</a>
         {% endif %}
     </div>
