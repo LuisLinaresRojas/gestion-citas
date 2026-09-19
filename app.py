@@ -92,6 +92,36 @@ def agendar():
 def mis_citas():
     citas = Cita.query.filter_by(usuario_id=current_user.id).all()
     return render_template('agendar.html', citas=citas)
+@app.route('/admin')
+@login_required
+def admin():
+    if current_user.rol != 'admin':
+        flash('Acceso denegado. Solo administradores.')
+        return redirect(url_for('index'))
+    citas = Cita.query.all()
+    return render_template('admin.html', citas=citas)
+
+@app.route('/admin/confirmar/<int:id>')
+@login_required
+def confirmar(id):
+    if current_user.rol != 'admin':
+        return redirect(url_for('index'))
+    c = Cita.query.get_or_404(id)
+    c.estado = 'confirmada'
+    db.session.commit()
+    flash('Cita confirmada')
+    return redirect(url_for('admin'))
+
+@app.route('/admin/cancelar/<int:id>')
+@login_required
+def cancelar(id):
+    if current_user.rol != 'admin':
+        return redirect(url_for('index'))
+    c = Cita.query.get_or_404(id)
+    c.estado = 'cancelada'
+    db.session.commit()
+    flash('Cita cancelada')
+    return redirect(url_for('admin'))
 
 if __name__ == '__main__':
     with app.app_context():
