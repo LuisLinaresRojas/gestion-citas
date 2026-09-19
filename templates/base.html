@@ -12,6 +12,9 @@
         {% if current_user.is_authenticated %}
             <a href="/agendar" class="btn btn-sm btn-outline-light me-1">Agendar Cita</a>
             <a href="/mis-citas" class="btn btn-sm btn-outline-light me-1">Mis Citas</a>
+                        {% if current_user.rol == 'admin' %}
+                <a href="/admin" class="btn btn-sm btn-warning me-1">Admin</a>
+            {% endif %}
             <span class="text-white me-2 ms-2">{{ current_user.nombre }}</span>
             <a href="/logout" class="btn btn-sm btn-outline-light">Salir</a>
         {% else %}
