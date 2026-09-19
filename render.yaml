@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: gestion-citas
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
