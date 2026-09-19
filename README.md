@@ -23,4 +23,9 @@ Python, Flask, SQLite, Bootstrap, GitHub Actions, Render.
 - Repositorio: https://github.com/LuisLinaresRojas/gestion-citas
 - Blueprint en Render: https://dashboard.render.com/blueprints
 - Despliegue en vivo: https://gestion-citas-bxka.onrender.com
+- CI/CD: https://github.com/LuisLinaresRojas/gestion-citas/actions
 - Video explicativo: https://youtu.be/H9twO-cRrvA
+
+## Credenciales de prueba
+- **Admin:** admin@demo.com / admin123
+- **Usuario:** cualquiera registrado desde la app
