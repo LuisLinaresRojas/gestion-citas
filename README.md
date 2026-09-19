@@ -4,7 +4,7 @@
 Aplicación web para registrar usuarios y gestionar citas de atención universitaria.
 
 ## Integrantes
-- [Tu nombre] – Desarrollo individual (autorizado por el docente)
+- Linares Rojas Luis – Desarrollo individual (autorizado por el docente)
 
 ## Modalidad de trabajo
 Proyecto desarrollado de forma individual con autorización del docente [nombre], debido a motivos laborales. Asumo todos los roles: repositorio, funcional, calidad/automatización y despliegue/documentación.
