@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Agendar cita</h2>
+<form method="POST">
+    <input class="form-control mb-2" type="date" name="fecha" required>
+    <input class="form-control mb-2" type="time" name="hora" required>
+    <input class="form-control mb-2" name="motivo" placeholder="Motivo de la cita" required>
+    <button class="btn btn-primary">Agendar</button>
+</form>
+
+<h3 class="mt-4">Mis citas</h3>
+<ul class="list-group">
+    {% for c in citas %}
+    <li class="list-group-item">
+        {{ c.fecha }} a las {{ c.hora }} — {{ c.motivo }} — <strong>Estado: {{ c.estado }}</strong>
+    </li>
+    {% else %}
+    <li class="list-group-item">No tienes citas agendadas aún.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
