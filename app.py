@@ -29,6 +29,12 @@ def registro():
         correo = request.form['correo']
         password = request.form['password']
         
+        # --- NUEVA VALIDACIÓN AGREGADA AQUÍ ---
+        if len(password) < 6:
+            flash('La contraseña debe tener al menos 6 caracteres')
+            return redirect(url_for('registro'))
+        # --------------------------------------
+        
         if Usuario.query.filter_by(correo=correo).first():
             flash('El correo ya está registrado')
             return redirect(url_for('registro'))
@@ -92,6 +98,7 @@ def agendar():
 def mis_citas():
     citas = Cita.query.filter_by(usuario_id=current_user.id).all()
     return render_template('agendar.html', citas=citas)
+
 @app.route('/admin')
 @login_required
 def admin():
